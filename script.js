@@ -627,6 +627,63 @@ const pokemonData = [
         image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/888.png"
     },
     
+    // Paldea Region (Gen 9)
+    {
+        id: 906,
+        name: "sprigatito",
+        type: "grass",
+        region: "paldea",
+        height: "0.4 m",
+        weight: "4.1 kg",
+        abilities: "overgrow, protean",
+        description: "Capable of photosynthesis, it releases a sweet aroma when it rubs its forepaws together. The grass starter of paldea region.",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/906.png"
+    },
+    {
+        id: 909,
+        name: "fuecoco",
+        type: "fire",
+        region: "paldea",
+        height: "0.4 m",
+        weight: "9.8 kg",
+        abilities: "blaze, unaware",
+        description: "It lies on warm rocks during the day to build up energy in its fire sac, then happily spits out flames at night. The fire starter of paldea region.",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/909.png"
+    },
+    {
+        id: 912,
+        name: "quaxly",
+        type: "water",
+        region: "paldea",
+        height: "0.5 m",
+        weight: "6.1 kg",
+        abilities: "torrent, moxie",
+        description: "Its glossy feathers repel water and grime. It aligns its crest with gel secreted from its scalp for impeccable form. The water starter of paldea region.",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png"
+    },
+    {
+        id: 1007,
+        name: "koraidon",
+        type: "fighting/dragon",
+        region: "paldea",
+        height: "2.5 m",
+        weight: "303.0 kg",
+        abilities: "orichalcum pulse",
+        description: "This ancient legend left behind writings describing it as the winged king. It exudes primal strength across paldea.",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1007.png"
+    },
+    {
+        id: 1008,
+        name: "miraidon",
+        type: "electric/dragon",
+        region: "paldea",
+        height: "3.5 m",
+        weight: "240.0 kg",
+        abilities: "hadron engine",
+        description: "Said to be the iron serpent, it glides effortlessly through the air with energy thrusters on its legs. It protects the future of paldea.",
+        image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1008.png"
+    },
+    
     // Additional Kanto Pokemon
     {
         id: 2,
