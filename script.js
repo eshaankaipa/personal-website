@@ -4195,7 +4195,11 @@ function updateTime() {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
+<<<<<<< HEAD
         hour12: false,
+=======
+        hour12: false
+>>>>>>> b0e48aaf15f96d1f6908a4f57aae86f554049ebb
         timeZone: 'America/Los_Angeles'
     });
     
@@ -4544,3 +4548,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
