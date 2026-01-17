@@ -90,7 +90,7 @@ function initPokemonPopup() {
     if (!canvas || !popup) return;
 
     canvas.addEventListener('click', async () => {
-        const randomId = Math.floor(Math.random() * 151) + 1;
+        const randomId = Math.floor(Math.random() * 1025) + 1;
         
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
