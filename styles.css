@@ -5,13 +5,265 @@
 }
 
 :root {
-    --bg: #221d19;
+    --bg: #1a1612;
     --bg-light: #2a2320;
-    --text: #a89d90;
-    --text-bright: #d4c8b8;
+    --text: #c0b2a3;
+    --text-bright: #f0e6d8;
     --accent: #a54646;
     --accent-bright: #e07474;
     --border: #4d4135;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+    position: relative;
+}
+
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 1000;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.container {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 14vh 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+}
+
+.name-block h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-bright);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.75rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-links a {
+    color: var(--text);
+    transition: color 0.3s ease;
+    opacity: 0.85;
+}
+
+.social-links a:hover {
+    color: var(--accent-bright);
+    opacity: 1;
+}
+
+.pokeball-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+#pokeball-canvas {
+    opacity: 0.95;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#pokeball-canvas:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.pokeball-hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--text);
+    opacity: 0.7;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+}
+
+.bio {
+    margin-bottom: 3rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+}
+
+.bio p {
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+.bio a {
+    color: var(--text-bright);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.bio a:hover {
+    color: var(--accent-bright);
+    border-color: var(--accent);
+}
+
+.experience h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+}
+
+.experience ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.experience li {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.experience li:last-child {
+    border-bottom: none;
+}
+
+.experience .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 500;
+    padding-top: 5px;
+    min-width: 24px;
+    opacity: 0.9;
+}
+
+.experience p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.experience a {
+    color: var(--text-bright);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.experience a:hover {
+    color: var(--accent-bright);
+    border-color: var(--accent);
+}
+
+.pokemon-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 22, 18, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.pokemon-popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.pokemon-content {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    text-align: center;
+    position: relative;
+    max-width: 280px;
+}
+
+.pokemon-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.pokemon-close:hover {
+    opacity: 1;
+    color: var(--accent-bright);
+}
+
+#pokemon-sprite {
+    width: 120px;
+    height: 120px;
+    image-rendering: pixelated;
+    filter: contrast(1.1);
+}
+
+#pokemon-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: var(--text-bright);
+    text-transform: capitalize;
+    margin-top: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+#pokemon-types {
+    font-size: 13px;
+    color: var(--text);
+    margin-top: 0.5rem;
+    font-style: italic;
+    opacity: 0.9;
 }
 
 html {
