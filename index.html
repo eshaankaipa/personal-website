@@ -7,147 +7,37 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas id="bg-canvas"></canvas>
-    
     <main class="container">
-        <nav class="nav">
-            <div class="nav-left">
-                <span class="nav-location">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    San Francisco
-                </span>
+        <header class="header">
+            <div class="header-left">
+                <h1>Eshaan Kaipa</h1>
+                <span class="location">San Francisco</span>
             </div>
-            <div class="nav-right">
-                <a href="mailto:ekaipa@seas.upenn.edu">Email</a>
-                <a href="https://github.com/eshaankaipa" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/eshaankaipa" target="_blank">LinkedIn</a>
-            </div>
-        </nav>
+            <canvas id="pokeball-canvas" width="80" height="80"></canvas>
+        </header>
 
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Eshaan Kaipa</h1>
-                    <p class="tagline">Building at the intersection of AI & space exploration</p>
-                    <p class="intro">
-                        CS + Math at Penn. Previously ML research at NASA Goddard & JPL. 
-                        Currently exploring multi-agent systems and how AI can push the boundaries of scientific discovery.
-                    </p>
-                </div>
-                <div class="hero-visual">
-                    <canvas id="pokeball-canvas" width="120" height="120"></canvas>
-                </div>
+        <section class="experience">
+            <div class="exp-item">
+                <span class="exp-place">NASA Goddard</span>
+                <p>Built ML pipelines using reinforcement learning and Monte Carlo simulations to predict lunar mineral composition.</p>
             </div>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <h2>Experience</h2>
-                <div class="section-line"></div>
+            <div class="exp-item">
+                <span class="exp-place">NASA JPL</span>
+                <p>Used vector database simulations to research exomoon detection methods.</p>
             </div>
-            <div class="cards">
-                <article class="card">
-                    <div class="card-icon">
-                        <img src="nasagsfc.png" alt="NASA Goddard" onerror="this.style.display='none'">
-                    </div>
-                    <div class="card-content">
-                        <h3>NASA Goddard Space Flight Center</h3>
-                        <span class="card-role">Machine Learning Researcher</span>
-                        <p>Built ML pipelines to predict lunar mineral composition from spectral data. Contributed to models supporting future Artemis missions.</p>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card-icon">
-                        <img src="nasajpl.png" alt="NASA JPL" onerror="this.style.display='none'">
-                    </div>
-                    <div class="card-content">
-                        <h3>NASA Jet Propulsion Laboratory</h3>
-                        <span class="card-role">Software Developer</span>
-                        <p>Simulated exoplanetary transmission spectra to research potential exomoon detection methods.</p>
-                    </div>
-                </article>
-                <article class="card">
-                    <div class="card-icon">
-                        <img src="graphene-removebg-preview.png" alt="GrapheneAI" onerror="this.style.display='none'">
-                    </div>
-                    <div class="card-content">
-                        <h3>GrapheneAI</h3>
-                        <span class="card-role">Product Developer</span>
-                        <p>Designed an AI agent that evaluates and grades early-stage companies for digital marketing optimization.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="section-header">
-                <h2>Projects</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="projects-grid">
-                <a href="https://github.com/eshaankaipa/PayVo" class="project" target="_blank">
-                    <div class="project-number">01</div>
-                    <div class="project-info">
-                        <h3>PayVo</h3>
-                        <p>Voice-authenticated P2P payments for iOS</p>
-                    </div>
-                    <svg class="project-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </a>
-                <a href="https://github.com/eshaankaipa/DanceDrone" class="project" target="_blank">
-                    <div class="project-number">02</div>
-                    <div class="project-info">
-                        <h3>DanceDrone</h3>
-                        <p>Autonomous synchronized aerial performance</p>
-                    </div>
-                    <svg class="project-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </a>
-                <a href="https://github.com/eshaankaipa/Optivus" class="project" target="_blank">
-                    <div class="project-number">03</div>
-                    <div class="project-info">
-                        <h3>Optivus</h3>
-                        <p>AI glasses that solve math in real-time</p>
-                    </div>
-                    <svg class="project-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                    </svg>
-                </a>
-            </div>
-        </section>
-
-        <section class="section about-section">
-            <div class="section-header">
-                <h2>Beyond Code</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="about-item">
-                    <span class="about-label">Currently Reading</span>
-                    <p>The Pragmatic Programmer</p>
-                </div>
-                <div class="about-item">
-                    <span class="about-label">Weekend Plans</span>
-                    <p>Tennis at Dolores Park</p>
-                </div>
-                <div class="about-item">
-                    <span class="about-label">Favorite Rabbit Hole</span>
-                    <p>Exoplanet atmospheres</p>
-                </div>
+            <div class="exp-item">
+                <span class="exp-place">Box</span>
+                <p>Built workflow automations to direct outbound at public sector people.</p>
             </div>
         </section>
 
         <footer class="footer">
-            <p>Let's build something together</p>
-            <a href="mailto:ekaipa@seas.upenn.edu" class="cta-button">Get in touch</a>
+            <a href="mailto:ekaipa@seas.upenn.edu">Email</a>
+            <a href="https://github.com/eshaankaipa" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/eshaankaipa" target="_blank">LinkedIn</a>
         </footer>
     </main>
 
