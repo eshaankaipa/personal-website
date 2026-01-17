@@ -57,14 +57,14 @@ function initPokeballCanvas() {
             let color;
             if (isCenter) {
                 if (Math.sqrt(x2*x2 + y1*y1) < 8) {
-                    color = `rgba(212, 196, 176, ${opacity + 0.5})`;
+                    color = `rgba(255, 255, 255, ${opacity + 0.5})`; // Button white
                 } else {
-                    color = `rgba(61, 51, 42, ${opacity + 0.6})`;
+                    color = `rgba(30, 30, 30, ${opacity + 0.6})`; // Band black
                 }
             } else if (isUpper) {
-                color = `rgba(139, 58, 58, ${opacity + 0.3})`;
+                color = `rgba(220, 50, 50, ${opacity + 0.3})`; // Top red
             } else {
-                color = `rgba(212, 196, 176, ${opacity * 0.7})`;
+                color = `rgba(240, 240, 240, ${opacity * 0.7})`; // Bottom white
             }
 
             ctx.fillStyle = color;
