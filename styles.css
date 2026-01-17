@@ -67,7 +67,16 @@ body {
     font-weight: 500;
     color: var(--text-bright);
     letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+}
+
+.location {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    opacity: 0.7;
     margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
 }
 
 .social-links {

@@ -1,7 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     initPokeballCanvas();
     initPokemonPopup();
+    initClock();
 });
+
+function initClock() {
+    const clockEl = document.getElementById('clock');
+    if (!clockEl) return;
+    
+    function updateClock() {
+        const now = new Date();
+        const options = { 
+            timeZone: 'America/Los_Angeles',
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit',
+            hour12: true 
+        };
+        clockEl.textContent = now.toLocaleTimeString('en-US', options);
+    }
+    
+    updateClock();
+    setInterval(updateClock, 1000);
+}
 
 function initPokeballCanvas() {
     const canvas = document.getElementById('pokeball-canvas');
