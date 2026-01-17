@@ -7,11 +7,11 @@
 :root {
     --bg: #1a1612;
     --bg-light: #2a2320;
-    --text: #c0b2a3;
-    --text-bright: #f0e6d8;
-    --accent: #a54646;
-    --accent-bright: #e07474;
-    --border: #4d4135;
+    --text: #9a8a7a;
+    --text-bright: #c8baa8;
+    --accent: #8a3a3a;
+    --accent-bright: #c06060;
+    --border: #3d3128;
 }
 
 html {
