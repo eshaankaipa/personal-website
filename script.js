@@ -17,7 +17,7 @@ function initClock() {
             second: '2-digit',
             hour12: true 
         };
-        clockEl.textContent = now.toLocaleTimeString('en-US', options);
+        clockEl.textContent = now.toLocaleTimeString('en-US', { ...options, hour12: false });
     }
     
     updateClock();
