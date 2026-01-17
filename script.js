@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     initPokeballCanvas();
+    initPokemonPopup();
 });
 
 function initPokeballCanvas() {
@@ -14,7 +15,7 @@ function initPokeballCanvas() {
     let rotationY = 0;
 
     const points = [];
-    const count = 300;
+    const count = 350;
     const radius = 38;
 
     for (let i = 0; i < count; i++) {
@@ -46,19 +47,29 @@ function initPokeballCanvas() {
             const x2d = x2 * scale + centerX;
             const y2d = y1 * scale + centerY;
 
-            const opacity = (z2 + radius) / (2 * radius) * 0.5 + 0.1;
-            const isUpper = y1 < -2;
+            const depth = (z2 + radius) / (2 * radius);
+            const opacity = depth * 0.6 + 0.2;
             
-            if (Math.abs(y1) < 1.5) {
-                ctx.fillStyle = `rgba(255, 255, 255, ${opacity + 0.4})`;
+            const distFromCenter = Math.abs(y1);
+            const isCenter = distFromCenter < 3;
+            const isUpper = y1 < -3;
+            
+            let color;
+            if (isCenter) {
+                if (Math.sqrt(x2*x2 + y1*y1) < 8) {
+                    color = `rgba(212, 196, 176, ${opacity + 0.5})`;
+                } else {
+                    color = `rgba(61, 51, 42, ${opacity + 0.6})`;
+                }
             } else if (isUpper) {
-                ctx.fillStyle = `rgba(239, 68, 68, ${opacity + 0.3})`;
+                color = `rgba(139, 58, 58, ${opacity + 0.3})`;
             } else {
-                ctx.fillStyle = `rgba(156, 163, 175, ${opacity})`;
+                color = `rgba(212, 196, 176, ${opacity * 0.7})`;
             }
 
+            ctx.fillStyle = color;
             ctx.beginPath();
-            ctx.arc(x2d, y2d, 0.8 * scale, 0, Math.PI * 2);
+            ctx.arc(x2d, y2d, 1.1 * scale, 0, Math.PI * 2);
             ctx.fill();
         });
 
@@ -66,8 +77,42 @@ function initPokeballCanvas() {
     }
 
     render();
+}
 
-    return () => {
-        window.cancelAnimationFrame(animationFrameId);
-    };
+function initPokemonPopup() {
+    const canvas = document.getElementById('pokeball-canvas');
+    const popup = document.getElementById('pokemon-popup');
+    const closeBtn = document.querySelector('.pokemon-close');
+    const sprite = document.getElementById('pokemon-sprite');
+    const nameEl = document.getElementById('pokemon-name');
+    const typesEl = document.getElementById('pokemon-types');
+
+    if (!canvas || !popup) return;
+
+    canvas.addEventListener('click', async () => {
+        const randomId = Math.floor(Math.random() * 151) + 1;
+        
+        try {
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
+            const data = await response.json();
+            
+            sprite.src = data.sprites.front_default;
+            nameEl.textContent = data.name;
+            typesEl.textContent = data.types.map(t => t.type.name).join(' / ');
+            
+            popup.classList.remove('hidden');
+        } catch (error) {
+            console.error('Failed to fetch Pokemon:', error);
+        }
+    });
+
+    closeBtn.addEventListener('click', () => {
+        popup.classList.add('hidden');
+    });
+
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.classList.add('hidden');
+        }
+    });
 }
