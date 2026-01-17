@@ -86,6 +86,7 @@ function initPokemonPopup() {
     const sprite = document.getElementById('pokemon-sprite');
     const nameEl = document.getElementById('pokemon-name');
     const typesEl = document.getElementById('pokemon-types');
+    const descriptionEl = document.getElementById('pokemon-description');
 
     if (!canvas || !popup) return;
 
@@ -93,12 +94,20 @@ function initPokemonPopup() {
         const randomId = Math.floor(Math.random() * 1025) + 1;
         
         try {
-            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
-            const data = await response.json();
+            const [pokemonResponse, speciesResponse] = await Promise.all([
+                fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`),
+                fetch(`https://pokeapi.co/api/v2/pokemon-species/${randomId}`)
+            ]);
+            const data = await pokemonResponse.json();
+            const speciesData = await speciesResponse.json();
+            
+            const englishEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+            const description = englishEntry ? englishEntry.flavor_text.replace(/\f|\n/g, ' ') : '';
             
             sprite.src = data.sprites.front_default;
             nameEl.textContent = data.name;
             typesEl.textContent = data.types.map(t => t.type.name).join(' / ');
+            descriptionEl.textContent = description;
             
             popup.classList.remove('hidden');
         } catch (error) {

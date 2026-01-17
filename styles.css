@@ -518,6 +518,14 @@ body {
     opacity: 0.8;
 }
 
+#pokemon-description {
+    font-size: 12px;
+    color: var(--text);
+    margin-top: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
 @media (max-width: 500px) {
     .container {
         padding: 10vh 20px;
