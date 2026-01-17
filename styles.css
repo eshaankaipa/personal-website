@@ -53,6 +53,7 @@ body {
     width: 100%;
     padding: 1rem 28px;
     z-index: 100;
+    text-align: center;
 }
 
 .top-bar .location {
